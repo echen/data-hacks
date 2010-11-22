@@ -1,5 +1,5 @@
 # What is this?!
-A library of command-line utilities for data analysis, written in Ruby. Inspired in part by bit.ly's [data hacks](https://github.com/bitly/data_hacks).
+A library of command-line utilities for data analysis, written in Ruby.
 Type `--help` to see options.
 
 ## barchart.rb
