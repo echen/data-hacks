@@ -4,7 +4,13 @@ else
   require_relative 'trollop.rb'
 end
 
-module Enumerable
+module Enumerable  
+  def each_int
+    self.each do |x|
+      yield x.strip.to_i
+    end
+  end
+  
   def each_cleaned
     self.each do |x|
       yield x.strip
@@ -104,6 +110,24 @@ class DataHacks
     buckets.sort.each do |key, count|
       bin = stringify_bin(key, opts.bin_size)
       puts "#{bin.rjust(max_bin_to_s_length)}: " + (count > 0 ? "#{"*" * count} (#{count})" : "")
+    end
+  end
+  
+  def self.make_stemplot(input_stream, opts)
+    stems_to_leaves = Hash.new { |hash, key| hash[key] = [] }
+    input_stream.each_int do |x|
+      stem, leaf = x.to_s[0..-2], x.to_s[-1]
+      stem = "0" if stem.empty?
+      if stem == "-"
+        stem = "0"
+        leaf = "-" + leaf
+      end
+      stems_to_leaves[stem] << leaf
+    end
+    max_stem_length = stems_to_leaves.keys.map(&:length).max
+    stems_to_leaves.keys.sort_by(&:to_i).each do |stem|
+      leaves = stems_to_leaves[stem]
+      puts "#{stem.rjust(max_stem_length)} | #{leaves.sort_by(&:to_i).join(' ')}"
     end
   end
   
