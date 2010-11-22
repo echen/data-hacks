@@ -63,3 +63,12 @@ Calculates a running mean and standard deviation from the input.
 	2.0             (mean: 5.15, sd: 12.59)
 	3.0             (mean: 5.00, sd: 12.00)
 	8.0             (mean: 5.20, sd: 11.76)
+
+## stemplot.rb
+Makes a stem-and-leaf plot from input data.
+
+	$ stemplot.rb < data/sample-numeric-data.txt 
+	-2 | 1 2
+	-1 | 0 3 8
+	 0 | 1 1 2 2 2 3 3 4 5 8 8 9
+	 1 | 0 0 0
