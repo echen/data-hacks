@@ -131,6 +131,27 @@ class DataHacks
     end
   end
   
+  def self.manipulate_table(input_stream, opts)
+    if opts.print_header
+      input_stream.each do |row|
+        row.split(opts.delimiter).each_with_index do |col, i|
+          puts "#{i+1}. #{col}"          
+        end
+        break
+      end
+      return
+    end
+    
+    output_cols = opts.columns.split(",").map(&:to_i)
+    input_stream.each_with_index do |row, i|
+      next if opts.skip_header and i == 0
+      
+      row = row.split(opts.delimiter)
+      selected = row.select.with_index{ |x, i| output_cols.include?(i+1) }
+      puts selected.join(opts.output_delimiter)
+    end
+  end
+  
   private
   
   def self.stringify_bin(bin_bottom, bin_size)

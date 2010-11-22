@@ -1,0 +1,5 @@
+Name	Age	Location	Birth	Color
+Alice	99	San Francisco	1980	red
+Bob	42	Boston	2001	green
+Carol	13	Seattle	1995	orange
+Eve	22	New York	1985	blue

@@ -43,7 +43,16 @@ Copies STDIN for a specified duration.
 Samples the input.
 
 	$ sample.rb --rate 10 < data/sample-string-data.txt
-		
+
+## stemplot.rb
+Makes a stem-and-leaf plot from input data.
+
+	$ stemplot.rb < data/sample-numeric-data.txt 
+	-2 | 1 2
+	-1 | 0 3 8
+	 0 | 1 1 2 2 2 3 3 4 5 8 8 9
+	 1 | 0 0 0
+			
 ## stream_statistics.rb
 Calculates a running mean and standard deviation from the input.
 
@@ -63,12 +72,19 @@ Calculates a running mean and standard deviation from the input.
 	2.0             (mean: 5.15, sd: 12.59)
 	3.0             (mean: 5.00, sd: 12.00)
 	8.0             (mean: 5.20, sd: 11.76)
+	
+## table.rb
+Performs useful table operations.
 
-## stemplot.rb
-Makes a stem-and-leaf plot from input data.
-
-	$ stemplot.rb < data/sample-numeric-data.txt 
-	-2 | 1 2
-	-1 | 0 3 8
-	 0 | 1 1 2 2 2 3 3 4 5 8 8 9
-	 1 | 0 0 0
+	$ cat data/sample-table-data.txt | ruby bin/table.rb --columns 1,5 --skip-header --output-delimiter ,
+	Alice,red
+	Bob,green
+	Carol,orange
+	Eve,blue
+	
+	$ cat data/sample-table-data.txt | ruby bin/table.rb --print-header
+	1. Name
+	2. Age
+	3. Location
+	4. Birth
+	5. Color
