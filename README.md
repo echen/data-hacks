@@ -76,13 +76,13 @@ Calculates a running mean and standard deviation from the input.
 ## table.rb
 Performs useful table operations.
 
-	$ cat data/sample-table-data.txt | ruby bin/table.rb --columns 1,5 --skip-header --output-delimiter ,
+	$ cat data/sample-table-data.txt | table.rb --columns 1,5 --skip-header --output-delimiter ,
 	Alice,red
 	Bob,green
 	Carol,orange
 	Eve,blue
 	
-	$ cat data/sample-table-data.txt | ruby bin/table.rb --print-header
+	$ cat data/sample-table-data.txt | table.rb --print-header
 	1. Name
 	2. Age
 	3. Location
