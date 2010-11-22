@@ -1,5 +1,5 @@
 # What is this?!
-A ruby port (+ more) of bit.ly's command-line [data hacks](https://github.com/bitly/data_hacks).
+A library of command-line utilities for data analysis, written in Ruby. Inspired in part by bit.ly's [data hacks](https://github.com/bitly/data_hacks).
 Type `--help` to see options.
 
 ## barchart.rb
@@ -42,7 +42,7 @@ Copies STDIN for a specified duration.
 ## sample.rb
 Samples the input.
 
-	$ sample.rb < data/sample-string-data.txt
+	$ sample.rb --rate 10 < data/sample-string-data.txt
 		
 ## stream_statistics.rb
 Calculates a running mean and standard deviation from the input.
