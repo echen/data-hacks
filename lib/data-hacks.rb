@@ -166,7 +166,8 @@ class DataHacks
     puts template.result(binding)
     
     if opts.output_dir
-      output_file.close 
+      output_file.close
+      $stdout = old_stdout
     end
   end
   
