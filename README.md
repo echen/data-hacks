@@ -28,6 +28,11 @@ Generates a histogram from input data.
 	  [8.0, 9.0): ** (2)
 	 [9.0, 10.0): * (1)
 	[10.0, 11.0): *** (3)
+	
+## html_table.rb
+Converts a table into HTML format, with sorting from the jQuery tablesorter plugin.
+
+	$ html_table.rb --output-dir my_table_dir data/sample-table-data.txt 
 		
 ## percentile.rb
 Grabs a percentile from input data.
