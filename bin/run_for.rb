@@ -9,7 +9,4 @@ opts = Trollop::options do
 end
 Trollop::die :duration, "must be >= 0" if opts[:duration] < 0
 
-if STDIN.tty?
-  puts "Nothing received on STDIN, awaiting your input: (CTRL-d to exit)"
-end
-DataHacks.run_for(STDIN, opts)
+DataHacks.run_for(ARGF, opts)

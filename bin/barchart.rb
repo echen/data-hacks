@@ -11,7 +11,7 @@ opts = Trollop::options do
   opt :max_bar_height, "Maximum number of asterisks per bar", :type => :int, :default => 50
 end
 
-if STDIN.tty?
-  puts "Nothing received on STDIN, awaiting your input: (CTRL-d to exit)"
-end
-DataHacks.make_barchart(STDIN, opts)
+#if STDIN.tty?
+#  puts "Nothing received on STDIN, awaiting your input: (CTRL-d to exit)"
+#end
+DataHacks.make_barchart(ARGF, opts)

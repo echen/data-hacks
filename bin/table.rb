@@ -16,7 +16,4 @@ opts = Trollop::options do
 end
 Trollop::die "no commands given" if !opts[:columns] and !opts[:print_header]
 
-if STDIN.tty?
-  puts "Nothing received on STDIN, awaiting your input: (CTRL-d to exit)"
-end
-DataHacks.manipulate_table(STDIN, opts)
+DataHacks.manipulate_table(ARGF, opts)

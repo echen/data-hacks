@@ -11,7 +11,4 @@ end
 Trollop::die :percentile, "must be <= 100" if opts[:percentile] > 100
 Trollop::die :percentile, "must be >= 0" if opts[:percentile] < 0
 
-if STDIN.tty?
-  puts "Nothing received on STDIN, awaiting your input: (CTRL-d to exit)"
-end
-DataHacks.get_percentile(STDIN, opts)
+DataHacks.get_percentile(ARGF, opts)

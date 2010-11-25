@@ -10,7 +10,4 @@ end
 Trollop::die :rate, "must be <= 100" if opts[:rate] > 100
 Trollop::die :rate, "must be >= 0" if opts[:rate] < 0
 
-if STDIN.tty?
-  puts "Nothing received on STDIN, awaiting your input: (CTRL-d to exit)"
-end
-DataHacks.sample(STDIN, opts)
+DataHacks.sample(ARGF, opts)

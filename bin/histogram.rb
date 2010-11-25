@@ -9,7 +9,4 @@ opts = Trollop::options do
   opt :max_bar_height, "Maximum number of asterisks per bin", :type => :int, :default => 50
 end
 
-if STDIN.tty?
-  puts "Nothing received on STDIN, awaiting your input: (CTRL-d to exit)"
-end
-DataHacks.make_histogram(STDIN, opts)
+DataHacks.make_histogram(ARGF, opts)
