@@ -1,8 +1,7 @@
-if Gem.available?('trollop')
-  require 'trollop'
-else
-  require_relative 'trollop.rb'
-end
+require 'erb'
+require 'fileutils'
+Gem.available?('trollop') ? (require 'trollop') : (require_relative 'trollop.rb')
+
 
 module Enumerable  
   def each_int
@@ -149,6 +148,25 @@ class DataHacks
       row = row.split(opts.delimiter)
       selected = row.select.with_index{ |x, i| output_cols.include?(i+1) }
       puts selected.join(opts.output_delimiter)
+    end
+  end
+  
+  def self.convert_table_to_html(input_stream, opts)
+    old_stdout = $stdout
+    output_file = nil
+    if opts.output_dir
+      Dir.mkdir(opts.output_dir)
+      assets = Dir[File.dirname(__FILE__) + "/../assets/html_table/*"]
+      FileUtils.cp(assets, opts.output_dir)
+      output_file = File.open(opts.output_dir + "/table.html", "w")
+      $stdout = output_file
+    end
+    
+    template = ERB.new File.new(File.dirname(__FILE__) + "/html_table.erb").read, nil, "%"
+    puts template.result(binding)
+    
+    if opts.output_dir
+      output_file.close 
     end
   end
   

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML Table</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="jquery-1.4.4.min.js"></script>
+    <script src="jquery.tablesorter.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#myTable").tablesorter();
+      });
+    </script>
+  </head>
+  <body>
+    <table id="myTable" class="tablesorter">
+			<% input_stream.each_with_index do |row, i| %>
+				<% if i == 0 %>
+					<thead>
+						<tr>
+							<%= row.split(opts.delimiter).map{ |col| "<th>#{col}</th>" }.join("\n") %>
+						</tr>
+					</thead>
+					<tbody>
+				<% else %>
+					<tr>
+						<%= row.split(opts.delimiter).map{ |col| "<td>#{col}</td>" }.join("\n" )%>
+					</tr>
+				<% end %>
+			<% end %>   
+			</tbody>			
+    </table
+  </body>
+</html>
