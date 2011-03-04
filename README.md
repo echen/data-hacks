@@ -45,7 +45,7 @@ Copies STDIN for a specified duration.
 	$ run_for.rb --duration 1 < data/sample-numeric-data.txt 
 		
 ## sample.rb
-Samples the input.
+Samples the input at a specified percentage.
 
 	$ sample.rb --rate 10 < data/sample-string-data.txt
 
